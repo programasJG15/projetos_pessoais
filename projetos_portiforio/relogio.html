@@ -1,0 +1,58 @@
+<html>
+    <head>
+        <title>Relogio Digital</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous"> 
+        <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
+        <style>
+            /* titulo */
+            h1 {
+                text-align: center;
+                font-size: 100px;
+                color: black;
+                margin-top: 100px;
+            }
+            /* imagem de fundo */
+            body {
+                background-image: url("/imagens/relogio.jpg");
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                font-size: 50px;
+                color: black;
+                text-align: center;
+                margin-top: 100px;
+                padding: 100px 100px 100px 100px;
+                /* animacao */
+            }
+            #relogio {
+    animation: pulse 1s infinite alternate;
+}
+
+@keyframes pulse {
+    from { transform: scale(1); }
+    to { transform: scale(1.05); }
+}
+        </style>
+    </head>
+    <body>
+        <!-- titulo -->
+        <h1>Relogio Digital</h1>
+        <p id="relogio"></p>
+
+        <!-- relogio digital em tempo real -->
+        <script>
+           function atualizarRelogio() {
+            const agora = new Date();
+            const horas = String(agora.getHours()).padStart(2, '0');
+            const minutos = String(agora.getMinutes()).padStart(2, '0');
+            const segundos = String(agora.getSeconds()).padStart(2, '0');
+            const relogio = document.getElementById('relogio');
+            relogio.textContent = `${horas}:${minutos}:${segundos}`;
+          }
+            atualizarRelogio();
+            setInterval(atualizarRelogio, 1000);
+        </script>
+    </body>
+</html>
+
+
